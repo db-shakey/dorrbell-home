@@ -1,0 +1,82 @@
+<!doctype html>
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorrbell Newsletter</title>
+<link href="styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WDMNR7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WDMNR7');</script>
+<!-- End Google Tag Manager -->
+    <section id="newsletter-top">
+		<div id="top-container">       
+            <div id="logo"><a href="home.html"><img src="images/logo_dorrbell_white.png" alt="Dorrbell Logo"></a></div>
+            <div id="logoMobile"><a href="home.html"><img src="images/logo_mobile_white.png" alt="Dorrbell Logo"></a></div>
+            <div class="header2 white">Dress Better.</div>
+            <div class="text_lg white mobile-hide">A weekly newsletter of articles from fashion bloggers and style tastemakers.<br/>Curated by our Community team. For women and men.</div>
+            <div class="form-container">
+                <form action="//dorrbell.us11.list-manage.com/subscribe/post?u=8d83d55dfc676ac778b17e1c0&amp;id=91326dba84" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div>
+                        <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder=" Email" required>
+                    </div>
+                    <div class="text_md white">
+                        Send me articles for:
+                        <input type="radio" value="Women" name="MMERGE1" id="mce-MMERGE1-0"><label for="mce-MMERGE1-0" style="color:#FFF;">Women</label>
+                        <input type="radio" value="Men" name="MMERGE1" id="mce-MMERGE1-1"><label for="mce-MMERGE1-1" style="color:#FFF;">Men</label>
+                    </div>
+                    <div>
+                        <input type="submit" class="newsletter" value="Subscribe Now" name="subscribe" id="mc-embedded-subscribe">
+                    </div>
+                </form>
+            </div>
+		</div>
+    </section>
+    <section id="footer">
+            <div class="container" id="dtFooter">
+                <div class="sectionCol colFooter">
+                    <span class="header5">The Service</span><br/>
+                    <a href="howItWorks" class="footerHome"><span>How It Works</span></a><br/>
+                    <a href="terms" class="footerHome">Terms of Service</a><br/><br/>
+                    &copy; Dorrbell 2015
+                </div>
+                <div class="sectionCol colFooter">
+                    <span class="header5">The Company</a></span><br/>
+                    <a href="about" class="footerHome">About Us</a><br/>
+                    <a href="http://blog.dorrbell.com" class="footerHome">Blog</a><br/>
+                    <a href="privacy" class="footerHome">Privacy</a>
+                </div>
+                <div class="sectionCol colFooter">
+					<a href="http://www.twitter.com/dorrbell_pdx" class="socialLogo footerHome" target="new"><img src="images/icon-twitter-svg.svg" class="ft-social-button"></a>
+                    <a href="https://www.facebook.com/dorrbellpdx" class="socialLogo footerHome" target="new"><img src="images/icon-facebook-svg.svg" class="ft-social-button"></a>
+                    <a href="http://www.google.com/+Dorrbell-PDX" class="socialLogo footerHome" target="new"><img src="images/icon-google-svg.svg" class="ft-social-button"></a>
+                    <a href="http://www.instagram.com/dorrbell_pdx" class="socialLogo footerHome" target="new"><img src="images/icon-instagram-svg.svg" class="ft-social-button"></a>
+                    <a href="http://www.pinterest.com/dorrbell_pdx" class="socialLogo footerHome" target="new"><img src="images/icon-pinterest-svg.svg" class="ft-social-button"></a>
+                </div>
+            </div>
+            <div class="container" id="mFooter">
+                <div style="padding:20px; margin-top: 20px;">
+                    <span class="header5">The Service</span><br/>
+                    <a href="howItWorks" class="footerHome"><span>How It Works</span></a><br/>
+                    <a href="terms" class="footerHome">Terms of Service</a><br/><br/>
+                    <span class="header5">The Company</a></span><br/>
+                    <a href="about" class="footerHome">About Us</a><br/>
+                    <a href="http://blog.dorrbell.com" class="footerHome">Blog</a><br/>
+                    <a href="privacy" class="footerHome">Privacy</a>
+                    <p>
+					<a href="http://www.twitter.com/dorrbell_pdx" class="socialLogo footerHome" target="new"><img src="images/icon-twitter-svg.svg" class="ft-social-button"></a>
+                    <a href="https://www.facebook.com/dorrbellpdx" class="socialLogo footerHome" target="new"><img src="images/icon-facebook-svg.svg" class="ft-social-button"></a>
+                    <a href="http://www.google.com/+Dorrbell-PDX" class="socialLogo footerHome" target="new"><img src="images/icon-google-svg.svg" class="ft-social-button"></a>
+                    <a href="http://www.instagram.com/dorrbell_pdx" class="socialLogo footerHome" target="new"><img src="images/icon-instagram-svg.svg" class="ft-social-button"></a>
+                    <a href="http://www.pinterest.com/dorrbell_pdx" class="socialLogo footerHome" target="new"><img src="images/icon-pinterest-svg.svg" class="ft-social-button"></a>                    <p>&copy; Dorrbell 2015</p>
+                </div>
+            </div>
+    </section>
+</body>
+</html>

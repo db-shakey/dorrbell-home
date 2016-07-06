@@ -1,0 +1,79 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorrbell - About Us</title>
+<link href="styles/styles.css" rel="stylesheet" type="text/css">
+<script src="https://use.typekit.net/jey4hge.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+</head>
+<body class="page">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WDMNR7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WDMNR7');</script>
+<!-- End Google Tag Manager -->
+<div id="container">
+	<section name="content">
+		<div id="page-content">
+        	<div id="logo-page"><a href="home.html"><img src="images/logo-beta-black.svg" alt="Dorrbell Logo"></a></div>
+            <div class="header3 center">About Dorrbell</div>
+            <div id="aboutQuote">Dorrbell is pioneering the "Same-Day Try On" service for the apparel retail industry. We're combining the immediacy of same-day delivery with the fitting room experience of a brick-and-mortar store to create a shopping experience with unmatched customer convenience.</div>
+            <div id="right-sidebar" class="mobile-hide">
+        		<div class="header4">Contact Us</div>
+                <div class="text_sm">
+                    <p>Dorrbell Inc.<br/>422 NW 13th Avenue #134<br/>Portland, OR. 97209
+                    <p>(503) 568-1118<br/>help@dorrbell.com</p>
+                </div>
+                <div class="header4">Media Inquiries</div>
+                <div class="text_sm"><p>media@dorrbell.com</p></div>
+            </div>
+            <div class="left-col-content">
+                <div class="header4">Same-Day Try On</div>
+				<div class="text_sm">
+                    <p>Dorrbell is a same-day try on service that provides consumers with a convenient and efficient way to buy clothing and accessories.  We've eliminated the inefficiencies and time-burn inherent in the in-store shopping model by bringing the fitting room to the customer. 
+                    <p>Dorrbell's geo-aware marketplace gives the customer a real-time view of apparel inventory in nearby stores. Customers can select items from multiple stores and schedule an in-home try on appointment the same day.  Dorrbell’s network of mobile shopping assistants deliver the items to the customer’s location in as little as an hour.</p>
+                    <p>The customer can try on the items at home and only pay for what is kept. Dorrbell picks up the un-purchased items and returns them to their home retailer.  
+                </div>
+                <div class="header4">Fashion-Centric</div>
+                <div class="text_sm"><p>Dorrbell partners exclusively with apparel retailers.  Our platform is designed specifically for the nuanced logistics of fulfilling same-day try on requests for clothing and accessories.</div>
+                <div class="header4">Round-Trip Logistics</div>
+                <div class="text_sm">
+                    <p>Dorrbell is not a same-day delivery service, but rather a same-day try on service.  We don't just move boxes from point A to point B.  We transport a fitting-room experience from retailers to their customers within a local market. 
+                    <p>Same-day delivery companies transport products to a customer location, however, if the customer does not want to keep the product they must initiate a separate returns process.  
+                    <p>Doorbell’s same-day try on service not only delivers products to the customer, but gives them the opportunity to physically experience the product prior to the purchase decision.  Then, Dorrbell picks up un-purchased items, returns them to their home retailer... all in a single seamless transaction.
+                </div>
+                <div class="header4">Try Before You Buy</div>
+                <div class="text_sm"><p>Dorrbell customers do not have to buy the items before they are delivered.  Payment happens after the in-home try on is complete and only for the items kept.  Our approach recreates the in-store fitting room experience for the customer by allowing them to physically try on items without buying them first.</div>
+                <div class="header4 mobile-show">Contact Us</div>
+                <div class="text_sm mobile-show">
+                    <p>Dorrbell Inc.<br/>422 NW 13th Avenue #134<br/>Portland, OR. 97209
+                    <p>(503) 568-1118<br/>help@dorrbell.com</p>
+                </div>
+                <div class="header4 mobile-show">Media Inquiries</div>
+                <div class="text_sm mobile-show"><p>media@dorrbell.com</p></div>
+			</div>
+		</div>        
+	</section>
+    <section name="footer">
+    	<div class="footer-content">
+            <span><a href="home.html" class="footer_page">Home</a></span>
+            <span><a href="howItWorks" class="footer_page">How It Works</a></span>
+            <span><a href="about" class="footer_page">About Us</a></span>
+            <span><a href="terms" class="footer_page">Terms of Service</a></span>
+            <span><a href="http://blog.dorrbell.com" class="footer_page">Blog</a></span>
+            <span><a href="privacy" class="footer_page">Privacy</a></span>
+		</div>
+    </section>
+</div>
+</body>
+</html>

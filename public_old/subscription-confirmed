@@ -1,0 +1,32 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorrbell Subscription Confirmed</title>
+<link href="styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body class="confirmation">  
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WDMNR7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WDMNR7');</script>
+<!-- End Google Tag Manager -->
+    <div class="form-bg news-conf">
+        <div style="text-align: center;"><a href="home.html"><img src="images/logo_dorrbell_black.png" alt="Dorrbell Logo"></a></div>
+        <div class="text_med">
+			<p>Subscription confirmed.
+			<p>Thank you for joining our mailing list.
+		</div>
+        <div><a href="home.html" class="btn">Continue to our website...</a></div>
+    </div>
+</body>
+</html>

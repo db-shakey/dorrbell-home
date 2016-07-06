@@ -1,0 +1,25 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorrbell</title>
+<link href="styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<section id="thanks-top">
+		<div id="top-container">
+            <div style="text-align:center;margin: 50px 0px 30px 0px;">
+                <a href="home.html"><img src="images/logo_dorrbell_white.png" alt="Dorrbell Beta logo"/></a>
+                <div class="header1 white">Thank You!</div>
+                <div class="text_lg white">You will receive an email from us shortly with details about our private beta service.</div>
+                <p><a href="home.html" class="yellow">Return to our website...</a></p>
+            </div>
+		</div>
+	</section>
+</body>
+</html>

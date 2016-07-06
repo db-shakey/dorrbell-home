@@ -1,0 +1,63 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorrbell - How It Works</title>
+<script src="https://use.typekit.net/jey4hge.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<link href="styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body class="page">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WDMNR7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WDMNR7');</script>
+<!-- End Google Tag Manager -->
+<div id="container">
+	<section name="content">
+        <div id="page-content">	
+			<div id="logo-page"><a href="home.html"><img src="images/logo-beta-black.svg" alt="Dorrbell Logo"></a></div>
+			<div class="text_sm"><p>Dorrbell is a new way to buy clothes that synthesizes the best of physical and digital retail. Our on-demand fitting room service combines the tactile experience of physical retail with the convenience of online shopping.</p></div>		
+			<div class="text_sm"><p>Here's how it works:</p></div>		
+			<div class="header4">Online Marketplace</div>
+			<div class="text_sm"><p>Dorrbell offers a localized online marketplace currently available at shop.dorrbell.com. The products displayed on our marketplace are the products currently in-stock at our retail partners' stores. We know which products are available Customers are only able to see products from stores within their serviceable area which is loosely defined as 10 miles from their delivery address.</p></div>
+			<div class="header4">Multiple Stores. One Delivery.</div>
+			<div class="text_sm"><p>Customers are able to select products from multiple stores as part of a single home delivery.  Dorrbell enables this using an algorithm that groups our retail partners' brick-and-mortar stores into "store clusters". A store cluster is similar to a shopping district in the physical world. Customers are able to add products to their delivery from multiple stores in the same shopping cluster.</p></div>
+			<div class="header4">Schedule Delivery</div>
+			<div class="text_sm"><p>After the customer selects their items, they are able to schedule a delivery time. The soonest available delivery time is approximately one hour from when the order is placed. Deliveries can also be scheduled up to 5 days in advance. Available on-demand delivery times depend on the number of items selected and the number of stores the shopping assistant must visit to gather those items. </p></div>
+			<div class="header4">Pre-Authorized Payment</div>
+			<div class="text_sm"><p>A credit card is required to schedule a delivery and will be pre-authorized for $25. Your credit card information will be securely stored with our payment gateway Braintree so you do not have to re-enter it each time you place an order. Braintree is a trusted leader in secure online payment solutions.</p></div>
+			<div class="header4">Shopping Assistants</div>
+			<div class="text_sm"><p>Dorrbell employs a fleet of well-trained and capable shopping assistants responsible for transporting merchandise from store to customer and back to the store. </p></div>
+			<div class="header4">Delivery</div>
+			<div class="text_sm"><p>Customers will receive a text message at the mobile phone number provided during the checkout process when their shopping assistant begins the pick up process. They will also receive a text message with an estimated time of arrival when the shopping assistant is en route to the delivery address. </p></div>
+			<div class="header4">Merchandise Time-With-Customer</div>
+			<div class="text_sm"><p>The shopping assistant leaves the merchandise with the customer. They do not stay at the customer's home. Customers have one hour with their items, but can request more time if needed.</p></div>
+			<div class="header4">Pick-Up & Payments</div>
+			<div class="text_sm"><p>A shopping assistant will return to pick up the un-purchased items from the customer. Items not given to the shopping assistant at the pickup are considered purchased. The credit card provided during checkout will be charged for the items kept and a receipt will be sent to the email address on the customer account.</p></div>
+			<div class="header4">Returns</div>
+			<div class="text_sm"><p>Merchandise returns requests must be initiated through Dorrbell. To request a return merchandise authorization, go to help.dorrbell.com or contact Customer Care.</p></div>
+        </div>
+	</section>
+    <section name="footer">
+    	<div class="footer-content">
+            <span><a href="home.html" class="footer_page">Home</a></span>
+            <span><a href="howItWorks" class="footer_page">How It Works</a></span>
+            <span><a href="about" class="footer_page">About Us</a></span>
+            <span><a href="terms" class="footer_page">Terms of Service</a></span>
+            <span><a href="http://blog.dorrbell.com" class="footer_page">Blog</a></span>
+            <span><a href="privacy" class="footer_page">Privacy</a></span>
+		</div>
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+// JavaScript Document
+document.write("\
+<span><a href="home.html" class="footer_page">Home</a></span>
+<span><a href="howItWorks.html" class="footer_page">How It Works</a></span>
+<span><a href="about.html" class="footer_page">About Us</a></span>
+<span><a href="terms.html" class="footer_page">Terms of Service</a></span>
+<span><a href="#" onclick="return false;" class="footer_page">Blog</a></span>
+<span><a href="privacy.html" class="footer_page">Privacy</a></span>
+);

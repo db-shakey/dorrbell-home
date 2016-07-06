@@ -1,0 +1,9 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<span style="color: #000;">test include file</span>
+</body>
+</html>

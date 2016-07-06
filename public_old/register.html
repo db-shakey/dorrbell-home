@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DORRBELL | Register</title>
+
+    <link href="styles/i/bootstrap.css" rel="stylesheet">
+    <link href="styles/i/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/i/iCheck/custom.css" rel="stylesheet">
+    <link href="styles/i/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="styles/i/animate.css" rel="stylesheet">
+    <link href="styles/i/style.min.css" rel="stylesheet">
+    <style>
+      h1,h2,h3,h4,h5,h6,body{
+        color: #646464 !important;
+      }
+      body{
+        background-color: #9fb3be;
+      }
+      .btn-primary, .btn-primary:hover{
+        background-color: #028b9a;
+        border-color: #028b9a;
+      }
+    </style>
+</head>
+
+<body>
+
+    <div class="middle-box loginscreen animated fadeInDown">
+        <div>
+            <div>
+                <h1 class="logo-name" style="line-height:0px;">
+                  <img src="images/logo_dorrbell_white.png"/>
+                </h1>
+            </div>
+            <div class="text-center">
+              <h3>Register to Dorrbell</h3>
+              <p>Create an account to see it in action.</p>
+            </div>
+
+            <form class="m-t" role="form" id="register-form">
+              <div class="form-group">
+                  <input type="email" class="form-control" name="Email" id="email" placeholder="Email" required="" readonly>
+              </div>
+
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="First Name" required="" name="FirstName">
+              </div>
+
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Last Name" required="" name="LastName">
+              </div>
+
+                <div class="form-group">
+                    <label class="font-noraml">Gender</label>
+                    <select class="form-control" placeholder="Gender" name="Gender__c" required="">
+                      <option>Female</option>
+                      <option>Male</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="font-noraml">Phone Number</label>
+                    <input type="phone" class="form-control" placeholder="Phone Number" required="" name="MobilePhone">
+                </div>
+                <div class="form-group" id="data_1">
+                    <label class="font-noraml">Birthdate</label>
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input name="Birthdate" readonly type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-noraml">Password</label>
+                    <input type="password" class="form-control" placeholder="Password" required="" name="Password__c">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password" required="" name="confirmPassword">
+                </div>
+
+                <div class="form-group m-t-md">
+                  <div class="checkbox i-checks"><label> <input type="checkbox"><i class="m-l-sm"></i> Agree the terms and policy </label></div>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+
+                <p class="text-muted text-center"><small>Already have an account?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="https://shop.dorrbell.com">Login</a>
+            </form>
+            <p class="m-t text-center"> <small>© Dorrbell 2015</small> </p>
+        </div>
+    </div>
+
+    <div class="modal inmodal fade" id="invalid-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title">Private Beta</h4>
+              </div>
+              <div class="modal-body">
+                  <p><strong>Dorrbell is in private beta</strong> and is not currently accepting new registrations. If you are interested in being considered for our beta, please visit the <a href='http://www.dorrbell.com'>Homepage</a>.</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal inmodal fade" id="success-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title">Thank you</h4>
+              </div>
+              <div class="modal-body">
+                  <p><strong>Thank you!!!</strong> Your registeration is successfully complete. You may now login with your credentials</p>
+              </div>
+              <div class="modal-footer">
+                <a href="http://shop.dorrbell.com/account/login" class="btn btn-primary">Shop Now</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal inmodal fade" id="password-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title">Please Check Input fields</h4>
+              </div>
+              <div class="modal-body">
+                  <p>Please ensure that your passwords match and contain atleast 6 characters.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <!-- Mainly scripts -->
+    <script src="js_files/jquery-2.1.1.js"></script>
+    <script src="js_files/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="js_files/iCheck/icheck.min.js"></script>
+    <script src="js_files/datapicker/bootstrap-datepicker.js"></script>
+    <script src="js_files/jquery.validate.min.js"></script>
+    <script src="js_files/register.js"></script>
+</body>
+
+</html>

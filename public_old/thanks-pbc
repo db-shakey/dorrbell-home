@@ -1,0 +1,41 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorrbell - Thank You Invitation Request</title>
+<!-- Adobe Typekit Start -->
+	<script src="https://use.typekit.net/jey4hge.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+	<!-- Adobe Typekit End -->
+<link href="styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body class="thanks">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WDMNR7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WDMNR7');</script>
+<!-- End Google Tag Manager -->
+<div id="container">
+	<div id="thanks-modal">
+		<a href="home.html"><img src="images/dorrbell-logo-beta-5f666e.svg" width="150" alt="Dorrbell Beta logo"/></a>
+		<div class="text_lg" style="margin-top: 16px;">Thank You. Check your inbox for an email about the status of your invitation request.</div>
+		<p><a href="home.html">Return to dorrbell.com</a> or visit our community</p>
+		<p>
+			<a class="socialLogo footerHome" href="http://www.twitter.com/dorrbell_pdx" target="new"><img class="ft-social-button social-button-gray" src="images/icon-twitter-gray.svg"></a>
+			<a class="socialLogo footerHome" href="https://www.facebook.com/dorrbellpdx" target="new"><img class="ft-social-button social-button-gray" src="images/icon-facebook-gray.svg"></a>
+			<a class="socialLogo footerHome" href="http://www.instagram.com/dorrbell_pdx" target="new"><img class="ft-social-button social-button-gray" src="images/icon-instagram-gray.svg"></a>
+			<a class="socialLogo footerHome" href="http://www.pinterest.com/dorrbell_pdx" target="new"><img class="ft-social-button social-button-gray" src="images/icon-pinterest-gray.svg"></a>
+		</p>
+	</div>
+</div>
+</body>
+</html>

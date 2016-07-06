@@ -1,0 +1,98 @@
+<script type="text/ng-template" id="register-modal.htm">
+
+    <md-dialog flex="50" class="register-dialog">
+      <md-toolbar layout="row" layout-align="center center">
+        <img src="/app/images/logo_dorrbell_white.png"></img>
+      </md-toolbar>
+      <md-dialog-content>
+
+        <md-progress-linear md-mode="indeterminate" ng-if="model.loading"></md-progress-linear>
+          <md-content class="md-padding" ng-if="model.step == 1">
+            <div layout="column" layout-xs="column" class="p-lg">
+              <div flex layout="column">
+                <div layout="row" layout-padding>
+                  <div flex="nogrow">
+                    <md-icon md-font-set="material-icons">alarm</md-icon>
+                  </div>
+                  <div flex>
+                    Save time by using an existing account to sign into Dorrbell.
+                  </div>
+                </div>
+                <div layout="row" layout-padding>
+                  <div flex="nogrow">
+                    <md-icon md-font-set="material-icons">share</md-icon>
+                  </div>
+                  <div flex>
+                    We'll never share your information or post anything to your account without your permission.
+                  </div>
+                </div>
+              </div>
+              <div flex>
+                <div layout="column">
+                  <md-button class="md-raised md-primary fb-color" ng-click="register('facebook')">Facebook</md-button>
+                  <md-button class="md-raised md-primary twitter-color" ng-click="register('twitter')">Twitter</md-button>
+                  <md-button class="md-raised md-primary google-color" ng-click="register('google')">Google</md-button>
+                </div>
+              </div>
+            </div>
+          </md-content>
+          <md-content ng-if="model.step == 0">
+            <form name="model.accountForm" class="md-padding p-xl">
+              <div layout="column" layout-align="center center">
+                <h3>Clothing delivered in as little as 1 hour.</h3>
+                <small class="text-muted m-t-n-sm">Enter your zip code to see your local stores</small>
+              </div>
+              <div layout="column" layout-margin class="m-t-xl">
+                <md-input-container flex>
+                  <input name="postalCode" ng-model="user.postalCode" placeholder="Enter Zip Code"
+                  required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                  <div ng-messages="model.accountForm.postalCode.$error" role="alert" multiple>
+                    <div ng-message="required" class="my-message">You must supply a postal code.</div>
+                    <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                      code.
+                    </div>
+                  </div>
+                </md-input-container>
+                <div class="m-t-md"></div>
+                <md-button class="md-primary md-raised md-block">
+                  Find Stores
+                  <md-icon md-font-set="material-icons" aria-label="Close dialog">chevron_right</md-icon>
+                </md-button>
+              </div>
+            </form>
+          </md-content>
+          <md-content ng-if="model.step == 2">
+            <div class="md-padding p-xl" ng-if="model.authorized && !model.returning">
+              <h2>Success!</h2>
+              <p>
+                That's all the information we need for now. Your first in-home fitting room experience could be in as little as an hour. Head on over to our store and see what retailers near you have available.
+              </p>
+            </div>
+            <div class="md-padding p-xl" ng-if="model.authorized && model.returning">
+              <h2>Welcome Back!</h2>
+              <p>
+                Your next in-home fitting room experience could be in as little as an hour. Head on over to our store and see what retailers near you have available.
+              </p>
+            </div>
+            <div class="md-padding p-xl" ng-if="!model.authorized">
+              <h2>Service Unavailable</h2>
+              <p>
+                It looks like we aren't available in your location yet. However, we're expanding quickly and we'll let you know as soon as our service becomes available in your area.
+              </p>
+            </div>
+          </md-content>
+      </md-dialog-content>
+      <md-dialog-actions layout="column" layout-align="center center">
+        <p>
+          Already have an account? <a href="#">Log In</a>
+        </p>
+        <!-- <md-button ng-click="validate(model.accountForm)" ng-if="model.step == 1">
+          Next
+        </md-button>
+        <md-button class="md-raised md-primary" ng-if="model.step == 2 && model.authorized" ng-click="goToStore()">
+          Go To Store
+          <md-icon md-font-set="material-icons" aria-label="Close dialog">arrow_forward</md-icon>
+        </md-button> -->
+      </md-dialog-actions>
+    </md-dialog>
+</script>

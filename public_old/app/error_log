@@ -1,0 +1,13 @@
+[04-Aug-2015 00:35:47 UTC] PHP Fatal error:  Class 'phpish\http\Exception' not found in /home/datifloinc/public_html/app/shopify.php on line 114
+[04-Aug-2015 00:45:14 UTC] PHP Fatal error:  Class 'phpish\shopify\Exception' not found in /home/datifloinc/public_html/app/shopify.php on line 115
+[04-Aug-2015 00:54:47 UTC] PHP Fatal error:  Class 'phpish\shopify\Exception' not found in /home/datifloinc/public_html/app/shopify.php on line 115
+[04-Aug-2015 00:58:36 UTC] PHP Fatal error:  Call to undefined function pwd() in /home/datifloinc/public_html/app/get_products.php on line 2
+[04-Aug-2015 01:00:48 UTC] PHP Fatal error:  Class 'phpish\shopify\Exception' not found in /home/datifloinc/public_html/app/shopify.php on line 115
+[04-Aug-2015 01:41:56 UTC] PHP Fatal error:  Call to undefined function shopify\client() in /home/datifloinc/public_html/app/get_products.php on line 8
+[04-Aug-2015 01:42:23 UTC] PHP Fatal error:  Call to undefined function shopify\client() in /home/datifloinc/public_html/app/get_products.php on line 8
+[04-Aug-2015 01:42:33 UTC] PHP Fatal error:  Call to undefined function client() in /home/datifloinc/public_html/app/get_products.php on line 8
+[04-Aug-2015 01:44:40 UTC] PHP Fatal error:  Call to undefined function client() in /home/datifloinc/public_html/app/get_products.php on line 8
+[04-Aug-2015 01:44:41 UTC] PHP Fatal error:  Call to undefined function client() in /home/datifloinc/public_html/app/get_products.php on line 8
+[04-Aug-2015 01:45:20 UTC] PHP Fatal error:  Call to undefined function client() in /home/datifloinc/public_html/app/get_products.php on line 8
+[04-Aug-2015 01:45:22 UTC] PHP Fatal error:  Call to undefined function client() in /home/datifloinc/public_html/app/get_products.php on line 8
+[04-Aug-2015 01:48:23 UTC] PHP Fatal error:  Class 'http\Exception' not found in /home/datifloinc/public_html/app/shopify.php on line 114

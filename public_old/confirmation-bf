@@ -1,0 +1,23 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorrbell Mailing List Sign Up Confirmation</title>
+<link href="styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body class="confirmation">  
+    <div class="form-bg news-conf">
+        <div style="text-align: center;"><a href="home.html"><img src="images/logo_dorrbell_black.png" alt="Dorrbell Logo"></a></div>
+        <div class="header2">One More Step...</div>
+        <div class="text_med"><span style="background-color:rgba(243,252,128,1.00);">To enter the $100 Visa Gift Card giveaway you must confirm your email address by clicking the link in the email we just sent you.</span></div>
+        <div class="text_sm" style="padding-top: 15px;">Dorrbell Corp.<br/>422 NW 13th Avenue #134<br/>Portland, Oregon 97209</div>
+        <div><a href="home.html" class="btn">Return to our website...</a></div>
+    </div>
+    <script type="text/javascript" src="js_files/google-analytics.js"></script>
+</body>
+</html>

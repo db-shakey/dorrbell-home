@@ -1,0 +1,139 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorrbell In-Home Fitting Room</title>
+<link href="styles/home3.css" rel="stylesheet" type="text/css">
+<script src="js_files/respond.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js_files/jquery.validate.min.js"></script>
+<script>
+$(function(){
+    $("#salesforce_form").validate({
+      submitHandler: function(form) {
+        var formData = $('#salesforce_form').serialize();
+        console.log(formData);
+        $.ajax({
+          type: "POST",
+          url: "/app/saleforce_handle.php",
+          data: formData,
+          success: function() {
+            /*console.log('success!'); // or not!
+            $.get( "/app/zip_codes_validation.php", { zip_code: $("#zip").val() } )
+              .done(function( data ) {
+                console.log(data);
+                console.log($("#zip").val());
+              });*/
+              window.location.href = "/thanks.html";
+          },
+          error:function (xhr, ajaxOptions, thrownError){
+                        console.log(xhr.status); // 0
+                        console.log(thrownError); // empty
+                    }
+        });
+      }
+    });
+
+});
+</script>
+</head>
+<body>
+	<div class="page_container">
+		<div class="logo" id="logo">
+   	    	<a href="http://www.dorrbell.com"><img src="images/logo_dorrbell_white.png" alt="Dorrbell Logo"></a>
+        </div>
+        <div id="header">
+          <h1>Try on fashion and accessories at home before you buy.</br>
+          Delivered to your house in as little as an hour.</h1>
+        </div>
+        <div id="form_container">
+          <div id="form_container_inner">
+                <div id="form_header">
+                  <h2>To request a beta customer invitation, enter your email and zip code.  We're launching Fall 2015.</h2>
+              </div>
+                  <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+                    <input type=hidden name="oid" value="00D1a000000YIAy">
+                    <input type=hidden name="retURL" value="http://www.dorrbell.com/thanks.html">
+                    <input type=hidden id="00N1a000003zToe" name="00N1a000003zToe" value="Private Beta Customer">
+                    <input type=hidden id="00N1a000006AfJU" name="00N1a000006AfJU" value="1" />
+                  <div style="padding:5px;text-align:center;">
+                        <!--<label for="email">Email</label>-->
+                        <input id="email" name="email" type="text" placeholder=" Email" required/>
+                  </div>
+                  <div style="padding:5px;text-align:center;">
+                        <!--<label for="zip">Zip Code</label>-->
+                        <input id="zip" name="zip" type="text" placeholder=" Zip Code" required/>
+                  </div>
+                  <div style="padding:5px;text-align:center;">
+                    <input name="submit" type="submit" />
+                  </div>
+                  <div id="disclaimer" class="disclaimer">
+                    Currently only available in the US
+                  </div>
+                  </form>
+              </div>
+	</div>
+	<section id="howitworks">
+                <div class="container">
+                      <div class="section_title">How Dorrbell Works
+                      </div>
+                      <div class="sectionCol">
+                        <div><img src="images/circle_choose.jpg" alt="Select Items"/></div>
+                        <div class="howtext">Choose clothing and accessories from up to 3 nearby stores.</div>
+                      </div>
+                  	  <div class="sectionCol">
+                        <div><img src="images/circle_deliver.jpg" alt="Schedule"></div>
+                        <div class="howtext">A shopping assistant will deliver your items in as little as an hour.</div>
+                      </div>
+                    <div class="sectionCol">
+                        <div><img src="images/circle_tryon.png" alt="Try On"/></div>
+                        <div class="howtext">Try your items on at home and find the perfect style and fit before you buy.</div>
+                    </div>
+                    <div class="sectionCol">
+                        <div><img src="images/circle_pickup.jpg" alt="Pick Up"/></div>
+                        <div class="howtext">We pick up the items you don't want and you only pay for what you keep.</div>
+                    </div>
+                </div>
+             </section>
+	<section id="cards">
+             	<div class="container">
+				<ul>
+                    <li class="retailer">
+                    </li>
+                    <li class="about">
+                    </li>
+                    <li class="assistant">
+                    </li>
+                  </ul>
+                  </div>
+             </section>
+<section id="footer">
+             	<div class="container">
+                	<div class="sectionCol colFooter">
+                    	<span class="footerheader">The Service</span><br/>
+                        How It Works<br/>
+                        Terms of Service<br/><br/>
+                        &copy; 2015 Dorrbell LLC
+                    </div>
+                    <div class="sectionCol colFooter">
+                    	<span class="footerheader">The Company</span><br/>
+                        About Us<br/>
+                        Blog<br/>
+                        Privacy
+                    </div>
+                    <div class="sectionCol colFooter">
+                    	<span class="footerheader">Follow Us</span><br/>
+                        <span class="socialLogo"><a href="http://www.twitter.com/dorrbell_pdx" target="new"><img src="images/twitter_white.png"></a></span>
+                        <span class="socialLogo"><a href="http://www.facebook.com/pages/Dorrbell-Portland/1154921434522936" target="new"><img src="images/facebook_white.png"></a></span>
+                        <span class="socialLogo"><a href="http://www.google.com/+Dorrbell-PDX" target="new"><img src="images/google_plus_white.png"></a></span>
+                    </div>
+                </div>
+             </section>
+<script type="text/javascript" src="js_files/google-analytics.js"></script>
+</body>
+</html>

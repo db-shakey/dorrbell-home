@@ -1,0 +1,53 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      E:\Program Files\nodejs\node.exe C:\Users\cmoyl\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase init
+[debug] CLI Version:  3.0.2
+[debug] Platform:     win32
+[debug] Node Version: v4.4.5
+[debug] Time:         Sat Jun 18 2016 20:16:55 GMT-0400 (Eastern Daylight Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\Dropbox\Workspaces\Personal\Dorrbell\Home
+
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to. You can keep
+[info] these rules in your project directory and publish them with firebase deploy.
+[info] 
+[info] +  Wrote database.rules.json
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] +  Wrote public/index.html
+[info] 
+=== Project Setup
+[info] 
+[info] Now that your Firebase project directory is set up, it's time to associate
+[info] it with a project. You can create multiple project aliases by running
+[info] firebase use --add, but for now we'll just set up a default project.
+[info] 
+[debug] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] i  Writing configuration info to firebase.json...
+[info] i  Writing project information to .firebaserc...
+[info] 
+[info] +  Firebase initialization complete!

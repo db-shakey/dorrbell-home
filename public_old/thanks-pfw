@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dorrbell - PDX Fashion Week</title>
+<link href="styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pdx-fashion">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WDMNR7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WDMNR7');</script>
+<!-- End Google Tag Manager -->
+	<div class="landing-page1">
+        <section name="banner">
+            <div id="logo"><a href="home.html"><img src="images/logo_dorrbell_white.png" alt="Dorrbell Logo"></a></div>
+            <div id="logoMobile"><a href="home.html"><img src="images/logo_mobile_white.png" alt="Dorrbell Logo"></a></div>
+        </section>
+        <section name="form">
+			<div class="pdx-form">
+				<div class="header2 white">Thank You!</div>
+				<div class="text_med white">You will receive an email from us shortly about the Dorrbell private beta service. The contest winner will be notified Tuesday, September 29th at 10am PST by email.</div>
+				<div><br/><a href="https://dorrbell.squarespace.com/blog/2015/9/8/what-is-dorrbell" class="yellow" target="_blank">What Is Dorrbell?</a></div>
+            </div>
+                <!-- Facebook Conversion Code for pdx fashion week conversion -->
+                <script>(function() {
+                var _fbq = window._fbq || (window._fbq = []);
+                if (!_fbq.loaded) {
+                var fbds = document.createElement('script');
+                fbds.async = true;
+                fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(fbds, s);
+                _fbq.loaded = true;
+                }
+                })();
+                window._fbq = window._fbq || [];
+                window._fbq.push(['track', '6036806976306', {'value':'0.01','currency':'USD'}]);
+                </script>
+                <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6036806976306&amp;cd[value]=0.01&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+        </section>
+	</div>
+</body>
+</html>

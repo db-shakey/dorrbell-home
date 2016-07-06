@@ -1,0 +1,322 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Dorrbell - On-Demand Clothing Delivered In 1 Hour</title>
+  <link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon' />
+  <!-- Adobe Typekit Start -->
+  <script src="https://use.typekit.net/jey4hge.js"></script>
+  <script>
+    try {
+      Typekit.load({
+        async: true
+      });
+    } catch (e) {}
+  </script>
+  <!-- Adobe Typekit End -->
+  <link href="styles/styles.css" rel="stylesheet" type="text/css">
+  <script src="js_files/respond.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js_files/jquery.validate.min.js"></script>
+  <script>
+    $(function() {
+      $.fn.serializeObject = function() {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+          if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+              o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+          } else {
+            o[this.name] = this.value || '';
+          }
+        });
+        return o;
+      };
+      $("#salesforce_form").validate({
+        submitHandler: function(form) {
+          var formData = $('#salesforce_form').serializeObject();
+          console.log(formData);
+          $.ajax({
+            type: "POST",
+            url: "http://dorrbell.herokuapp.com/api/lead",
+            data: JSON.stringify(formData),
+            beforeSend: function(xhr) {
+              xhr.setRequestHeader('authorization', 'Basic Z14vbjcyayxOdUpnM0pfXw==');
+              xhr.setRequestHeader('Content-Type', 'application/json');
+            },
+            success: function() {
+              /*console.log('success!'); // or not!
+            $.get( "/app/zip_codes_validation.php", { zip_code: $("#zip").val() } )
+            .done(function( data ) {
+            console.log(data);
+            console.log($("#zip").val());
+          });*/
+              window.location.href = "/thanks-pbc";
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+              console.log(xhr.status); // 0
+              console.log(thrownError); // empty
+            }
+          });
+        }
+      });
+
+    });
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAcz_WwopApajZN2vUL_yEXdkwYZBlDHB8",
+      authDomain: "dorrbell-1106.firebaseapp.com",
+      databaseURL: "https://dorrbell-1106.firebaseio.com",
+      storageBucket: "dorrbell-1106.appspot.com",
+    };
+    firebase.initializeApp(config);
+  </script>
+
+</head>
+
+<body>
+  <!-- Google Tag Manager -->
+  <noscript>
+    <iframe height="0" src="//www.googletagmanager.com/ns.html?id=GTM-WDMNR7" style="display:none;visibility:hidden" width="0"></iframe>
+  </noscript>
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ?
+        '&l=' + l :
+        '';
+      j.async = true;
+      j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode
+        .insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WDMNR7');
+  </script>
+  <!-- End Google Tag Manager -->
+  <div id="container">
+    <section id="header">
+      <div id="message-bar">Dorrbell Launches On-Demand Apparel Service in Portland. <a href="http://blog.dorrbell.com/post/145741017064/portland-launch" target="_blank" class="yellow">Read blog</a></div>
+      <div id="top-nav-bar">
+        <a href="http://shop.dorrbell.com" class="top-nav">
+          <div id="login-button">Sign In</div>
+        </a>
+        <div id="logo">
+          <a href="/home.html">
+            <img alt="Dorrbell Logo" src="images/dorrbell-logo-beta-5f666e.svg" class="logo">
+          </a>
+        </div>
+      </div>
+      <div class="home-tagline">
+        <div class="tagline">Try on clothes at home without paying up-front. Returns included.</div>
+        <div class="sub-tagline">Free delivery with first order</div>
+      </div>
+    </section>
+    <section id="hero">
+      <div class="hero-container">
+        <div class="hero-block">
+          <div class="form-bg">
+            <div class="form_header">Dorrbell is invite only. We're activating only 20 new customer accounts in June. Provide your email and zip code to be considered for an invitation.
+            </div>
+            <form id="salesforce_form" method="POST">
+              <div style="padding:5px;text-align:center;">
+                <input id="email" name="email" placeholder=" Email" type="email" required></input>
+              </div>
+              <div style="padding:5px;text-align:center;">
+                <input id="zip" name="zip" placeholder=" Zip Code" required type="tel" />
+              </div>
+              <div style="padding:5px;text-align:center;">
+                <input name="submit" type="submit" value="Request Invitation" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="brands">
+      <div class="brands"></div>
+    </section>
+    <section id="who-we-are">
+      <header class="header-who-we-are">What Is Dorrbell?</header>
+      <img src="images/ornament.svg" id="ornament">
+      <p class="who-we-are-text">Dorrbell allows people to actively shop for clothes from home and still enjoy the in-store benefits of seeing, touching and trying items on before buying.</p>
+    </section>
+    <section id="howitworks">
+      <div class="container">
+        <div class="header-how">How Dorrbell Works</div>
+        <div class="sectionCol">
+          <div>
+            <img alt="Select Items" src="images/how-img-choose.svg" style="max-width: 125px;" />
+          </div>
+          <div class="header-how-sub">Choose</div>
+          <div class="header-how-text">Choose clothing from nearby stores to be delivered to your door.</div>
+        </div>
+        <div class="sectionCol">
+          <div>
+            <img alt="Schedule" src="images/how-img-delivery.svg" style="max-width: 125px;">
+          </div>
+          <div class="header-how-sub">Delivery</div>
+          <div class="header-how-text">Schedule your delivery in as little as an hour or up to 5 days in advance.</div>
+        </div>
+        <div class="sectionCol">
+          <div>
+            <img alt="Try On" src="images/how-img-keep.svg" style="max-width: 125px;" />
+          </div>
+          <div class="header-how-sub">Keep</div>
+          <div class="header-how-text">Try your clothes and accessories on and decide what you want to keep.</div>
+        </div>
+        <div class="sectionCol">
+          <div>
+            <img alt="Pick Up" src="images/how-img-returns.svg" style="max-width: 125px;" />
+          </div>
+          <div class="header-how-sub">Returns</div>
+          <div class="header-how-text">We return to pick up the items you don't want. Pay only for what you keep.</div>
+        </div>
+      </div>
+    </section>
+    <section id="inventory">
+      <div class="how-img img-inventory float-rt"></div>
+      <div class="how-txt-container float-lt">
+        <div class="how-txt-block">
+          <div class="how-txt-header">
+            Clothes Sold Locally At Your Fingertips
+          </div>
+          <div class="how-txt-p">
+            Dorrbell is synchronized with the inventories of your nearby stores so you know what products are available to experience at home. We're an extension of our retail partners' physical stores and transport merchandise between the store and your home without
+            up-front payment.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="delivery">
+      <div class="how-txt-container float-rt">
+        <div class="how-txt-block">
+          <div class="how-txt-header">
+            Delivery & Returns Bundled Together
+          </div>
+          <div class="how-txt-p">
+            Not only do we bring the clothes you select to your door, but we also return to pick up the items you decide not to keep. We save you from the inconvenience and hassle of returning items by taking care of it for you and making it part of every order.
+          </div>
+        </div>
+      </div>
+      <div class="how-img img-delivery float-lt"></div>
+    </section>
+    <section id="hassle-free">
+      <div class="how-txt-container float-lt">
+        <div class="how-txt-block">
+          <div class="how-txt-header" style="font-family: essonnes display;">
+            Surprise-Free Wardrobe Updates
+          </div>
+          <div class="how-txt-p">
+            Why wait for a box of items chosen by someone else to arrive at your doorstep when nobody knows what looks best on you better than you? Dorrbell gives you full control of your wardrobe updates and offers a try-before-buy experience without waiting for
+            a shipment.
+          </div>
+        </div>
+      </div>
+      <div class="how-img img-hassle-free float-rt"></div>
+    </section>
+    <section id="app">
+      <div class="how-txt-container float-lt" style="width: 45%;">
+        <div class="how-txt-block">
+          <div class="how-txt-header" style="text-align: left;">
+            We Deliver The Fitting Room To Your Living Room
+          </div>
+          <div class="how-txt-p" style="text-align: left;">
+            Dorrbell keeps you connected to the clothing stores in your area and informs you of new inventory, item markdowns and store-wide sales. Curate items over time or quickly assemble the fitting room items you want to try before buying. Either way, we'll
+            deliver your personalized fitting room to your home at precisely the time you want so you can skip the trip to the store.
+          </div>
+        </div>
+      </div>
+      <div class="how-img img-app float-rt" style="width: 55%;"></div>
+    </section>
+    <section id="footer">
+      <div class="container" id="dtFooter">
+        <div class="sectionCol colFooter">
+          <div class="footer-header">The Service</div>
+          <div class="footer-links">
+            <a class="footerHome" href="howItWorks">How It Works</a>
+            <br/>
+            <a class="footerHome" href="terms">Terms of Service</a>
+          </div>
+        </div>
+        <div class="sectionCol colFooter">
+          <div class="footer-header">The Company</div>
+          <div class="footer-links">
+            <a class="footerHome" href="about">About Us</a>
+            <br/>
+            <a class="footerHome" href="http://blog.dorrbell.com">Blog</a>
+            <br/>
+            <a class="footerHome" href="privacy">Privacy</a>
+          </div>
+        </div>
+        <div class="sectionCol colFooter">
+          <a class="socialLogo footerHome" href="http://www.twitter.com/dorrbell_pdx" target="new">
+            <img class="ft-social-button" src="images/icon-twitter-svg.svg">
+          </a>
+          <a class="socialLogo footerHome" href="https://www.facebook.com/dorrbellpdx" target="new">
+            <img class="ft-social-button" src="images/icon-facebook-svg.svg">
+          </a>
+          <a class="socialLogo footerHome" href="http://www.instagram.com/dorrbell_pdx" target="new">
+            <img class="ft-social-button" src="images/icon-instagram-svg.svg">
+          </a>
+          <a class="socialLogo footerHome" href="http://www.pinterest.com/dorrbell_pdx" target="new">
+            <img class="ft-social-button" src="images/icon-pinterest-svg.svg">
+          </a>
+        </div>
+        <div style="padding: 10px;">&copy; Dorrbell 2016</div>
+      </div>
+      <div class="container" id="mFooter">
+        <div style="padding:20px; margin-top: 20px;">
+          <div class="footer-header">The Service</div>
+          <div class="footer-links">
+            <a class="footerHome" href="howItWorks">How It Works</a>
+            <br/>
+            <a class="footerHome" href="terms">Terms of Service</a>
+          </div>
+          <div class="footer-header" style="margin-top: 20px;">The Company</div>
+          <div class="footer-links">
+            <a class="footerHome" href="about">About Us</a>
+            <br/>
+            <a class="footerHome" href="http://blog.dorrbell.com">Blog</a>
+            <br/>
+            <a class="footerHome" href="privacy">Privacy</a>
+          </div>
+          <div style="margin-top: 20px;">
+            <a class="socialLogo footerHome" href="http://www.twitter.com/dorrbell_pdx" target="new">
+              <img class="ft-social-button" src="images/icon-twitter-svg.svg">
+            </a>
+            <a class="socialLogo footerHome" href="https://www.facebook.com/dorrbellpdx" target="new">
+              <img class="ft-social-button" src="images/icon-facebook-svg.svg">
+            </a>
+            <a class="socialLogo footerHome" href="http://www.instagram.com/dorrbell_pdx" target="new">
+              <img class="ft-social-button" src="images/icon-instagram-svg.svg">
+            </a>
+            <a class="socialLogo footerHome" href="http://www.pinterest.com/dorrbell_pdx" target="new">
+              <img class="ft-social-button" src="images/icon-pinterest-svg.svg">
+            </a>
+            <p>&copy; Dorrbell 2016</p>
+          </div>
+        </div>
+    </section>
+    </div>
+</body>
+
+</html>

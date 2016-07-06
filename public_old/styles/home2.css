@@ -1,0 +1,208 @@
+@charset "UTF-8";
+/* Simple fluid media
+   Note: Fluid media requires that you remove the media's height and width attributes from the HTML
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+
+body {
+  background-image: url("http://www.dorrbell.com/images/home-background2.jpg");
+  font-family: "Helvetica Neue-Light", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+  font-size: 14pt;
+  color: #FFF;
+
+}
+
+h1 {
+  font-size: 34px;
+  font-weight: 500;
+  margin: 10px 0 10px 0;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 10px 0 20px 0;
+}
+
+input {
+    border-radius: 2px;
+    border: 0;
+    width: 250px;
+    height:30px;
+	font-size:14pt;
+	font-weight: 100;
+    font-family: "Helvetica Neue-Light", "Segoe UI", Segoe, Helvetica, sans-serif;
+    background: #fff;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #FFF 1%, #ededed 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #f4f4f4), color-stop(100%, #ededed));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #FFF 1%, #FFF 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #FFF 1%, #FFF 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #FFF 1%, #FFF 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #FFF 1%, #FFF 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF', endColorstr='#FFF', GradientType=0);
+    /* IE6-9 */
+}
+
+input[type=submit] {
+    border-radius: 5<p></p>px;
+    border: 0;
+    width: 100px;
+    height:35px;
+    font-family: "Helvetica Neue-Light", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
+    background: #f4f4f4;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #f4f4f4), color-stop(100%, #ededed));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f4f4f4 1%, #ededed 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #f4f4f4 1%, #ededed 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ededed', GradientType=0);
+    /* IE6-9 */
+}
+
+
+img, object, embed, video {
+	max-width: 100%;
+}
+
+/* IE 6 does not support max-width so default to width 100% */
+.ie6 img {
+	width:100%;
+}
+
+/*
+	Dreamweaver Fluid Grid Properties
+	----------------------------------
+	dw-num-cols-mobile:		4;
+	dw-num-cols-tablet:		8;
+	dw-num-cols-desktop:	12;
+	dw-gutter-percentage:	25;
+	
+	Inspiration from "Responsive Web Design" by Ethan Marcotte 
+	http://www.alistapart.com/articles/responsive-web-design
+	
+	and Golden Grid System by Joni Korpi
+	http://goldengridsystem.com/
+*/
+
+.fluid {
+	clear: both;
+	margin-left: 0;
+	width: 100%;
+	float: left;
+	display: block;
+	text-align:center;
+}
+
+.fluidList {
+    list-style:none;
+    list-style-image:none;
+    margin:0;
+    padding:0;        
+}
+
+/* Mobile Layout: 480px and below. */
+  
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 86.45%;
+	padding-left: 2.275%;
+	padding-right: 2.275%;
+	clear: none;
+	float: none;
+}
+#div1 {
+}
+.footer {
+	align-content:center;
+	font-size: 10pt;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.zeroMargin_mobile {
+margin-left: 0;
+}
+.hide_mobile {
+display: none;
+}
+
+/* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
+
+@media only screen and (min-width: 481px) {
+
+.gridContainer {
+	width: 90.675%;
+	padding-left: 1.1625%;
+	padding-right: 1.1625%;
+	clear: none;
+	float: none;
+	margin-left: auto;
+}
+#div1 {
+}
+.footer {
+	align-content:center;
+	font-size: 10pt;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.hide_tablet {
+display: none;
+}
+.zeroMargin_tablet {
+margin-left: 0;
+}
+}
+
+/* Desktop Layout: 769px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
+
+@media only screen and (min-width: 769px) {
+
+.gridContainer {
+	width: 88.5%;
+	max-width: 1232px;
+	padding-left: 0.75%;
+	padding-right: 0.75%;
+	margin: auto;
+	clear: none;
+	float: none;
+	margin-left: auto;
+}
+#div1 {
+}
+.footer {
+	align-content:center;
+	font-size: 10pt;	
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+.zeroMargin_desktop {
+margin-left: 0;
+}
+.hide_desktop {
+display: none;
+}
+}
+input.error { border: 2px solid red; }
+label.error {
+  display: block;
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
