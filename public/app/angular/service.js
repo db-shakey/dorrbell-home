@@ -9,7 +9,17 @@ dorrbell.service("HerokuService", function($http){
         },
         data : data,
         url : "https://dorrbell-test.herokuapp.com/" + route
-      })
+      });
+    },
+    get : function(route){
+      return $http({
+        method : "GET",
+        headers : {
+          "Content-Type" : "application/json",
+          "authorization" : "Basic Z14vbjcyayxOdUpnM0pfXw=="
+        },
+        url : "https://dorrbell-test.herokuapp.com/" + route
+      });
     }
   };
 });

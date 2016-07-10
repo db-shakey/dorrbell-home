@@ -42,6 +42,23 @@ dorrbell.config(function($stateProvider, $urlRouterProvider, $locationProvider, 
     .state('register', {
       url : "/register",
       templateUrl: "app/templates/register.html",
-      controller : "RegisterController"
+      controller : "RegisterController",
+      reloadOnSearch: false
+    })
+    .state('howItWorks', {
+      url : '/howItWorks',
+      templateUrl : "app/templates/howItWorks.html"
+    })
+    .state('terms', {
+      url : '/terms',
+      templateUrl : "app/templates/terms.html"
+    })
+    .state('privacy', {
+      url : '/privacy',
+      templateUrl : "app/templates/privacy.html"
+    })
+    .state('about', {
+      url : '/about',
+      templateUrl : "app/templates/about.html"
     })
 });
