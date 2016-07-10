@@ -1,51 +1,105 @@
 <script type="text/ng-template" id="register-modal.htm">
 
     <md-dialog flex="50" class="register-dialog">
-      <md-toolbar layout="row" layout-align="center center">
-        <img src="/app/images/logo_dorrbell_white.png"></img>
+      <md-toolbar>
+        <div class="text-center">
+          <md-button ng-click="goBack()" class="md-icon-button" ng-if="model.step != 0">
+            <md-icon md-font-set="material-icons" aria-label="Close dialog" ng-style="{'font-size':'36px'}">chevron_left</md-icon>
+          </md-button>
+          <img src="/app/images/logo_dorrbell_white.png" class="m-r-xl"></img>
+        </div>
       </md-toolbar>
       <md-dialog-content>
 
         <md-progress-linear md-mode="indeterminate" ng-if="model.loading"></md-progress-linear>
+
+
           <md-content class="md-padding" ng-if="model.step == 1">
-            <div layout="column" layout-xs="column" class="p-lg">
-              <div flex layout="column">
-                <div layout="row" layout-padding>
-                  <div flex="nogrow">
-                    <md-icon md-font-set="material-icons">alarm</md-icon>
-                  </div>
-                  <div flex>
-                    Save time by using an existing account to sign into Dorrbell.
-                  </div>
+            <div flex layout="column" class="m-t-n-md">
+
+              <div layout="column" layout-padding ng-if="!model.authorized && !model.returning" layout-align="center center">
+                <div flex>
+                  <h2>We aren't in {{user.postalCode}} yet.</h2>
                 </div>
-                <div layout="row" layout-padding>
-                  <div flex="nogrow">
-                    <md-icon md-font-set="material-icons">share</md-icon>
-                  </div>
-                  <div flex>
-                    We'll never share your information or post anything to your account without your permission.
-                  </div>
+                <div flex class="m-t-n-xl">
+                  <p>Sign up and we'll let you know when we get there!</p>
                 </div>
               </div>
-              <div flex>
-                <div layout="column">
-                  <md-button class="md-raised md-primary fb-color" ng-click="register('facebook')">Facebook</md-button>
-                  <md-button class="md-raised md-primary twitter-color" ng-click="register('twitter')">Twitter</md-button>
-                  <md-button class="md-raised md-primary google-color" ng-click="register('google')">Google</md-button>
+              <div layout="column" layout-padding ng-if="model.authorized && !model.returning" layout-align="center center">
+                <div flex>
+                  <h2>We're available in {{user.postalCode}}</h2>
                 </div>
+              </div>
+              <div layout="column" layout-padding ng-if="model.returning" layout-align="center center">
+                <div flex>
+                  <h2>Welcome Back!</h2>
+                </div>
+                <div flex class="m-t-n-xl">
+                  <p>Log in with your email and password.</p>
+                </div>
+              </div>
+              <div class="text-center error m-b-lg m-t-n-sm" ng-if="model.error">{{model.error}}</div>
+            </div>
+
+            <form name="model.userForm" layout="column" class="p-w-xl m-t-n-lg" layout-margin ng-if="!model.returning" ng-submit="registerEmail(model.userForm)">
+              <div layout="row" flex>
+                <md-input-container>
+                  <label>First Name</label>
+                  <input ng-model="user.firstName" ng-minlength="2" required>
+                </md-input-container>
+                <md-input-container>
+                  <label>Last Name</label>
+                  <input ng-model="user.lastName" ng-minlength="2" required>
+                </md-input-container>
+              </div>
+              <md-input-container class="m-t-n-sm">
+                <label>Email</label>
+                <input ng-model="user.email" type="email" required>
+              </md-input-container>
+              <md-input-container>
+                <label>Choose a Password</label>
+                <input ng-model="user.password" type="password" ng-minlength="6" required>
+              </md-input-container>
+              <md-button class="md-primary md-raised md-block" type="submit">
+                Sign up with email
+                <md-icon md-font-set="material-icons" aria-label="Close dialog">chevron_right</md-icon>
+              </md-button>
+            </form>
+            <form name="model.loginForm" layout="column" class="p-w-xl" layout-margin ng-if="model.returning" ng-submit="login(model.loginForm)">
+              <md-input-container class="m-t-n-sm">
+                <label>Email</label>
+                <input ng-model="user.email" type="email" required>
+              </md-input-container>
+              <md-input-container>
+                <label>Password</label>
+                <input ng-model="user.password" type="password" ng-minlength="6" required>
+              </md-input-container>
+              <md-button class="md-primary md-raised md-block" type="submit">
+                Log In
+                <md-icon md-font-set="material-icons" aria-label="Close dialog">chevron_right</md-icon>
+              </md-button>
+            </form>
+            <div class="text-center strike m-t-md m-b-md"><span>Or</span></div>
+            <div flex>
+              <div layout="column" class="p-w-xl md-padding">
+                <md-button class="md-raised md-primary fb-color" ng-click="register('facebook')">
+                  <i class="fa fa-facebook m-r-md" aria-hidden="true"></i>
+                  {{(model.returning) ? 'Log in ' : 'Sign up '}}with Facebook
+                </md-button>
               </div>
             </div>
           </md-content>
+
+
           <md-content ng-if="model.step == 0">
-            <form name="model.accountForm" class="md-padding p-xl">
+            <form name="model.accountForm" class="md-padding p-xl m-t-n-md" ng-submit="verifyZipCode(model.accountForm)">
               <div layout="column" layout-align="center center">
-                <h3>Clothing delivered in as little as 1 hour.</h3>
-                <small class="text-muted m-t-n-sm">Enter your zip code to see your local stores</small>
+                <h3 class="text-center">Clothes delivered to your door so you can skip the trip to the store.</h3>
               </div>
               <div layout="column" layout-margin class="m-t-xl">
                 <md-input-container flex>
-                  <input name="postalCode" ng-model="user.postalCode" placeholder="Enter Zip Code"
-                  required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                  <input name="postalCode" ng-model="user.postalCode" placeholder="Enter your zip code"
+                  required ng-pattern="/^[0-9]{5}$/" ng-maxlength="5">
                   <div ng-messages="model.accountForm.postalCode.$error" role="alert" multiple>
                     <div ng-message="required" class="my-message">You must supply a postal code.</div>
                     <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
@@ -54,45 +108,59 @@
                   </div>
                 </md-input-container>
                 <div class="m-t-md"></div>
-                <md-button class="md-primary md-raised md-block">
-                  Find Stores
+                <md-button class="md-primary md-raised md-block" type="submit">
+                  Continue
                   <md-icon md-font-set="material-icons" aria-label="Close dialog">chevron_right</md-icon>
                 </md-button>
               </div>
             </form>
           </md-content>
+
+
           <md-content ng-if="model.step == 2">
-            <div class="md-padding p-xl" ng-if="model.authorized && !model.returning">
-              <h2>Success!</h2>
-              <p>
-                That's all the information we need for now. Your first in-home fitting room experience could be in as little as an hour. Head on over to our store and see what retailers near you have available.
-              </p>
-            </div>
-            <div class="md-padding p-xl" ng-if="model.authorized && model.returning">
-              <h2>Welcome Back!</h2>
-              <p>
-                Your next in-home fitting room experience could be in as little as an hour. Head on over to our store and see what retailers near you have available.
-              </p>
-            </div>
             <div class="md-padding p-xl" ng-if="!model.authorized">
-              <h2>Service Unavailable</h2>
+              <h2>Thank you for signing up.</h2>
               <p>
-                It looks like we aren't available in your location yet. However, we're expanding quickly and we'll let you know as soon as our service becomes available in your area.
+                We're working hard to expand to new locations. We'll let you know when we've reached yours.
               </p>
             </div>
           </md-content>
+
+          <md-content ng-if="model.step == 3" class="p-xl">
+            <div layout="column" layout-padding ng-if="model.returning" class="m-t-n-md" layout-align="center center">
+              <div flex>
+                <h2>Forgot your Password?</h2>
+              </div>
+              <div flex class="m-t-n-xl">
+                <p>We'll send you a link to reset your password</p>
+              </div>
+              <div class="text-center error m-sm" ng-if="model.error">{{model.error}}</div>
+              <div class="success m-sm" ng-if="model.resetSent">You will receive an email with instructions about how to reset your password in a few minutes. Please check your email.</div>
+            </div>
+            <form name="model.resetPasswordForm" class="md-padding m-t-n-md">
+              <div layout="column">
+                <md-input-container flex>
+                  <input ng-model="user.email" placeholder="Enter your email" required type="email">
+                </md-input-container>
+                <div class="m-t-md"></div>
+                <md-button class="md-primary md-raised md-block" ng-click="resetPassword(model.resetPasswordForm)" ng-disabled="model.resetSent">
+                  Reset Password
+                  <md-icon md-font-set="material-icons" aria-label="Close dialog">chevron_right</md-icon>
+                </md-button>
+              </div>
+            </form>
+          </md-content>
       </md-dialog-content>
       <md-dialog-actions layout="column" layout-align="center center">
-        <p>
-          Already have an account? <a href="#">Log In</a>
-        </p>
-        <!-- <md-button ng-click="validate(model.accountForm)" ng-if="model.step == 1">
-          Next
-        </md-button>
-        <md-button class="md-raised md-primary" ng-if="model.step == 2 && model.authorized" ng-click="goToStore()">
-          Go To Store
-          <md-icon md-font-set="material-icons" aria-label="Close dialog">arrow_forward</md-icon>
-        </md-button> -->
+        <div ng-if="model.step == 0 || (!model.returning && model.step == 1)">
+          Already have an account? <a href="#" ng-click="goToLogin()">Log In</a>
+        </div>
+        <div ng-if="model.returning && model.step == 1 || model.step == 3">
+          Don't have an account? <a href="#" ng-click="goBack()">Sign Up</a>
+        </div>
+        <div ng-if="model.returning && model.step == 1" class="m-t-xs">
+          Forgot your password? <a href="#" ng-click="goToPasswordReset()">Reset it</a>
+        </div>
       </md-dialog-actions>
     </md-dialog>
 </script>

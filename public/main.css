@@ -43,7 +43,66 @@ md-content{
   box-shadow: none;
   max-width: 30rem;
 }
+.register-dialog md-toolbar button{
+  float: left;
+  top: .5rem;
+  margin: 0;
+}
 .register-dialog md-toolbar img{
-  width: 12rem;
-  margin-top: -.5rem;
+  max-width: 10rem;
+}
+.register-page footer{
+  z-index: 81;
+  margin-bottom: 1rem;
+}
+.register-page footer a{
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  margin: 0 1rem;
+}
+.register-dialog .error{
+  color: red;
+}
+.register-dialog .success{
+  background-color: #a5e7f6;
+}
+.register-dialog md-dialog-actions, .register-dialog .error, .register-dialog .success{
+  font-size: smaller;
+}
+
+
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+    font-size: smaller;
+    font-weight: 700;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background-color: lightgray;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
 }
