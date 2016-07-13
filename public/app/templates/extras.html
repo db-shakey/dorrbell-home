@@ -27,7 +27,7 @@
               </div>
               <div layout="column" layout-padding ng-if="model.authorized && !model.returning" layout-align="center center">
                 <div flex>
-                  <h2>We're available in {{user.postalCode}}</h2>
+                  <h2>We're available in {{model.location.City__c}}!</h2>
                 </div>
               </div>
               <div layout="column" layout-padding ng-if="model.returning" layout-align="center center">

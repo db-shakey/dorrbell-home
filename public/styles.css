@@ -19,8 +19,11 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-body.page {
+section[name='content'], section[name='footer'] {
 	background: #9fb3be;
+}
+section[name='footer']{
+	padding-bottom: 1rem;
 }
 
 body.confirmation {

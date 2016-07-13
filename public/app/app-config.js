@@ -1,7 +1,7 @@
 dorrbell.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider, $httpProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/home");
+  $urlRouterProvider.otherwise("/");
   // use the HTML5 History API
   $locationProvider.html5Mode({
     enabled: true,
@@ -35,7 +35,7 @@ dorrbell.config(function($stateProvider, $urlRouterProvider, $locationProvider, 
   // Now set up the states
   $stateProvider
     .state('home', {
-      url: "/home",
+      url: "/",
       templateUrl: "app/templates/home.html",
       controller: "HomeController"
     })
