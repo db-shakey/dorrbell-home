@@ -25,40 +25,50 @@
         <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
         <script src="https://use.fontawesome.com/88c218f366.js"></script>
         <script src="https://use.typekit.net/jey4hge.js"></script>
+        <script src="https://cdn.ravenjs.com/3.2.1/raven.min.js"></script>
 		    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-        <script>
-          // Initialize Firebase
-          var config = {
-            apiKey: "AIzaSyAcz_WwopApajZN2vUL_yEXdkwYZBlDHB8",
-            authDomain: "dorrbell-1106.firebaseapp.com",
-            databaseURL: "https://dorrbell-1106.firebaseio.com",
-            storageBucket: "dorrbell-1106.appspot.com",
-          };
-          firebase.initializeApp(config);
-        </script>
 
         <!-- Google Tag Manager -->
         <noscript>
           <iframe height="0" src="//www.googletagmanager.com/ns.html?id=GTM-WDMNR7" style="display:none;visibility:hidden" width="0"></iframe>
         </noscript>
         <script>
-        (function (w, d, s, l, i) {
-          w[l] = w[l] || [];
-          w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-          });
-          var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer'
-          ? '&l=' + l
-          : '';
-          j.async = true;
-          j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-          f.parentNode
-          .insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-WDMNR7');
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+              'gtm.start': new Date().getTime(),
+              event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer'
+            ? '&l=' + l
+            : '';
+            j.async = true;
+            j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode
+            .insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', 'GTM-WDMNR7');
+
+          /*
+          var config = {
+            apiKey: "AIzaSyAcz_WwopApajZN2vUL_yEXdkwYZBlDHB8",
+            authDomain: "dorrbell-1106.firebaseapp.com",
+            databaseURL: "https://dorrbell-1106.firebaseio.com",
+            storageBucket: "dorrbell-1106.appspot.com",
+          };
+          */
+          var config = {
+            apiKey: "AIzaSyCbzQTM1kMvD5EsdXSU-moUJFaXgHX0Kr8",
+            authDomain: "dorrbell-test.firebaseapp.com",
+            databaseURL: "https://dorrbell-test.firebaseio.com",
+            storageBucket: "dorrbell-test.appspot.com",
+          };
+          firebase.initializeApp(config);
+
+
+          Raven.config('https://ba7b61828bf8414ea66856a0036f1ba0@app.getsentry.com/87885').install()
+
         </script>
         <!-- End Google Tag Manager -->
 

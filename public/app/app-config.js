@@ -23,14 +23,15 @@ dorrbell.config(function($stateProvider, $urlRouterProvider, $locationProvider, 
   });
   $mdThemingProvider.definePalette('dorrbell-accent', dorrbellAccent);
   $mdThemingProvider.definePalette('dorrbell-blue', dorrbellBlue);
-  $mdThemingProvider.theme('default')
+  $mdThemingProvider.theme('dorrbell')
     .primaryPalette('dorrbell-blue', {
       'default' : '500'
     })
     .accentPalette('dorrbell-accent', {
       'default' : '500'
     });
-
+  $mdThemingProvider.theme('dark-grey').backgroundPalette('blue-grey').dark();
+    $mdThemingProvider.setDefaultTheme('dorrbell');
   //
   // Now set up the states
   $stateProvider

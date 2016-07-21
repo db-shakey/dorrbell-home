@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "dorrbell-1106"
+    "default": "dorrbell-1106",
+    "test": "dorrbell-test"
   }
 }

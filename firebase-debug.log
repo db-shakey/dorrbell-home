@@ -1,9 +1,32 @@
 [debug] ----------------------------------------------------------------------
+[debug] Command:      E:\Program Files\nodejs\node.exe C:\Users\cmoyl\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] CLI Version:  3.0.4
+[debug] Platform:     win32
+[debug] Node Version: v4.4.5
+[debug] Time:         Wed Jul 20 2016 23:21:12 GMT-0400 (Eastern Daylight Time)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/dorrbell-test 
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/dorrbell-test/tokens 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'dorrbell-test'...
+[info] 
+[info] i  deploying database, hosting
+[info] +  database: rules ready to deploy.
+[info] i  hosting: preparing public directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/dorrbell-test/uploads/-KNATA8AdovhDq_tXQZZ?fileCount=1952&message= 
+[debug] ----------------------------------------------------------------------
 [debug] Command:      E:\Program Files\nodejs\node.exe C:\Users\cmoyl\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
 [debug] CLI Version:  3.0.4
 [debug] Platform:     win32
 [debug] Node Version: v4.4.5
-[debug] Time:         Tue Jul 12 2016 23:31:47 GMT-0400 (Eastern Daylight Time)
+[debug] Time:         Wed Jul 20 2016 23:21:21 GMT-0400 (Eastern Daylight Time)
 [debug] ----------------------------------------------------------------------
 [debug] 
 [info] Starting Firebase development server...

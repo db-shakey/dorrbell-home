@@ -4,9 +4,6 @@
     <section id="header">
       <div id="message-bar">Dorrbell Now Delivering Clothes From Vintalier <a href="http://bit.ly/dbl-vintalier" target="_blank" class="yellow">Read blog</a></div>
       <div id="top-nav-bar">
-        <md-button class="md-raised md-accent top-nav" ng-click="goToStore()" layout-align="end start" ng-if="currentUser">
-          Go To Store
-        </md-button>
         <div id="logo">
           <a href="/home.html">
             <img alt="Dorrbell Logo" src="app/images/dorrbell-logo-beta-5f666e.svg" class="logo">
@@ -21,11 +18,12 @@
     <section id="hero">
       <div class="hero-container">
         <div class="hero-block">
-          <div layout-align="center center" layout="row" class="form-bg" ng-if="!currentUser">
+          <div layout-align="center center" layout="row" class="form-bg">
             <div class="form_header">
               Dorrbell is now in open beta. Use the button below to get started and see if we're available in your area!
             </div>
-             <md-button class="md-raised md-accent" ng-click="showDialog($event)">Get Started</md-button>
+             <md-button class="md-raised md-accent" ng-click="showDialog($event)" ng-if="!currentUser || !currentUser.Qualified__c">Get Started</md-button>
+             <md-button class="md-raised md-accent" ng-click="goToStore()" ng-if="currentUser && currentUser.Qualified__c">Go To Store</md-button>
           </div>
         </div>
       </div>

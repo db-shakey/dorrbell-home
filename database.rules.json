@@ -1,8 +1,26 @@
 {
   "rules": {
-    "messages": {
-      ".read": "auth != null",
-      ".write": "auth != null"
-    }
+      "customers": {
+        "$firebaseId" : {
+          ".read" : "$firebaseId === auth.uid",
+          ".write" : "auth.uid === 'my-service-worker'",
+          "contact" : {
+            "Carts__r" : {
+              ".write" : "$firebaseId === auth.uid || auth.uid === 'my-service-worker'",
+              ".read" : "$firebaseId === auth.uid || auth.uid === 'my-service-worker'"
+            },
+            "Events" : {
+              ".write" : "$firebaseId === auth.uid || auth.uid === 'my-service-worker'",
+              ".read" : "$firebaseId === auth.uid || auth.uid === 'my-service-worker'"
+            }
+          }
+        },
+        ".read" : "auth.uid === 'my-service-worker'",
+        ".write" : "auth.uid === 'my-service-worker'"
+      },
+      "locations" : {
+        ".read" : "true",
+        ".write" : "auth.uid === 'my-service-worker'"
+      }
   }
 }
