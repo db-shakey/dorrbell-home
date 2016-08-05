@@ -21,6 +21,10 @@
       "locations" : {
         ".read" : "true",
         ".write" : "auth.uid === 'my-service-worker'"
+      },
+      "menu" : {
+        ".read" : "true",
+        ".write" : "auth.uid === 'my-service-worker' || auth.uid === 'N3VAFaRBouO9wi7QjSi3XGkazaU2'"
       }
   }
 }

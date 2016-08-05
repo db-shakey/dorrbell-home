@@ -45,11 +45,17 @@
               <div layout="row" flex>
                 <md-input-container>
                   <label>First Name</label>
-                  <input ng-model="user.firstName" ng-minlength="2" required>
+                  <input ng-model="user.firstName" name="firstName" ng-minlength="2" required>
+                  <div ng-messages="model.userForm.firstName.$error" role="alert">
+                    <div ng-message="minlength" class="my-message">First name must be at least 2 characters</div>
+                  </div>
                 </md-input-container>
                 <md-input-container>
                   <label>Last Name</label>
-                  <input ng-model="user.lastName" ng-minlength="2" required>
+                  <input ng-model="user.lastName" name="lastName" ng-minlength="2" required>
+                  <div ng-messages="model.userForm.lastName.$error" role="alert">
+                    <div ng-message="minlength" class="my-message">Last name must be at least 2 characters</div>
+                  </div>
                 </md-input-container>
               </div>
               <md-input-container class="m-t-n-sm">
@@ -58,7 +64,10 @@
               </md-input-container>
               <md-input-container>
                 <label>Choose a Password</label>
-                <input ng-model="user.password" type="password" ng-minlength="6" required>
+                <input ng-model="user.password" type="password" ng-minlength="6" required name="password">
+                <div ng-messages="model.userForm.password.$error" role="alert">
+                  <div ng-message="minlength" class="my-message">Your password must be at least 6 characters</div>
+                </div>
               </md-input-container>
               <md-button class="md-primary md-raised md-block" type="submit">
                 Sign up with email
@@ -68,11 +77,18 @@
             <form name="model.loginForm" layout="column" class="p-w-xl" layout-margin ng-if="model.returning" ng-submit="login(model.loginForm)">
               <md-input-container class="m-t-n-sm">
                 <label>Email</label>
-                <input ng-model="user.email" type="email" required>
+                <input ng-model="user.email" type="email" required name="email">
+                <div ng-messages="model.loginForm.email.$error" role="alert">
+                  <div ng-message="required" class="my-message">This field is required</div>
+                </div>
               </md-input-container>
               <md-input-container>
                 <label>Password</label>
-                <input ng-model="user.password" type="password" ng-minlength="6" required>
+                <input ng-model="user.password" type="password" name="password" ng-minlength="6" required>
+                <div ng-messages="model.loginForm.password.$error" role="alert" multiple>
+                  <div ng-message="required" class="my-message">This field is required</div>
+                  <div ng-message="minlength" class="my-message">Password must be at least 6 characters</div>
+                </div>
               </md-input-container>
               <md-button class="md-primary md-raised md-block" type="submit">
                 Log In
@@ -96,13 +112,31 @@
               <div layout="column" layout-align="center center">
                 <h3 class="text-center">Clothes delivered to your door so you can skip the trip to the store.</h3>
               </div>
-              <div layout="column" layout-align="center center" ng-if="model.referral">
+              <div layout="column" layout-align="center center" ng-if="model.referral" ng-show="model.checkCode">
                 <md-card md-theme="dark-grey" ng-class="(model.referral.Personas.records[0].ExternalPictureURL) ? '' : 'p-w-xl'">
                  <md-card-title>
                    <md-card-title-text>
                      <span class="md-headline text-center">{{model.referral.FirstName}} Gave You</span>
-                     <span class="md-headline text-center">$10.00 </span>
-                     <span class="md-subhead text-center">off your first order!</span>
+                     <span class="md-headline text-center">{{-1 * model.referralProduct.UnitPrice | currency}} </span>
+                     <span class="md-subhead text-center m-t-n-sm">off your first order!</span>
+                   </md-card-title-text>
+                   <md-card-title-media class="m-l-lg" ng-if="model.referral.Personas.records[0].ExternalPictureURL">
+                     <md-card-title-media>
+                        <div class="md-media-sm card-media">
+                          <img src="{{model.referral.Personas.records[0].ExternalPictureURL}}" class="m-t-sm"></img>
+                        </div>
+                      </md-card-title-media>
+                   </md-card-title-media>
+                 </md-card-title>
+               </md-card>
+              </div>
+              <div layout="column" layout-align="center center" ng-if="!model.referral" ng-show="model.checkCode">
+                <md-card md-theme="dark-grey" class="p-w-sm">
+                 <md-card-title>
+                   <md-card-title-text>
+                     <span class="md-headline text-center">Register Now to Receive</span>
+                     <span class="md-headline text-center">{{20 | currency}} </span>
+                     <span class="md-subhead text-center m-t-n-sm">off your first order!</span>
                    </md-card-title-text>
                    <md-card-title-media class="m-l-lg" ng-if="model.referral.Personas.records[0].ExternalPictureURL">
                      <md-card-title-media>

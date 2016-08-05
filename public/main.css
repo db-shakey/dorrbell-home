@@ -33,7 +33,8 @@ md-content{
   width: 100%;
   height: 100%;
   position: absolute;
-  background: url(app/images/register-backdrop.jpg) no-repeat center center fixed;
+  /*background: url(app/images/register-backdrop.jpg) no-repeat center center fixed;*/
+  background-color: #0f6175;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

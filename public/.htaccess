@@ -1,8 +1,32 @@
-RewriteEngine On
+#RewriteEngine On
   # If an existing asset or directory is requested go to it as it is
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
-  RewriteRule ^ - [L]
+  #RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+  #RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  #RewriteRule ^ - [L]
 
   # If the requested resource doesn't exist, use index.html
-  RewriteRule ^ /index.html
+  #RewriteRule ^ /index.html
+
+# do not allow anyone else to read your .htaccess file
+<Files .htaccess>
+deny from all
+</Files>
+
+# forbid viewing of directories
+Options All -Indexes
+
+# hide this list of files from being seen when listing a directory
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+# disable the server signature- helps with preformance
+ServerSignature Off
+
+# since it's out of fashion to use www- redirect URLs to non-www
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteBase /
+# keep the URLs clean:
+# if someone asks for index.php- rewrite the URL without it
+RewriteRule ^(.*?)/?index\.php$ $1 [NC,R=301,L]

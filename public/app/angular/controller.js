@@ -1,4 +1,5 @@
-dorrbell.controller("HomeController", function($scope, $mdDialog, $mdMedia, $rootScope, $location, $timeout, FacebookFactory, GoogleFactory, HerokuService){
+dorrbell.controller("HomeController", function($scope, $mdDialog, $mdMedia, $rootScope, $location, $timeout, FacebookFactory, GoogleFactory, HerokuService, SHOPIFY){
+
   $scope.showDialog = function(ev){
     var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
     $mdDialog.show({
@@ -22,9 +23,11 @@ dorrbell.controller("HomeController", function($scope, $mdDialog, $mdMedia, $roo
 
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
+      Raven.setUserContext(user);
       firebase.database().ref('customers/' + user.uid).on("value", function(snapshot){
         $timeout(function(){
-          $scope.currentUser = snapshot.val().contact;
+          if(snapshot.val() && snapshot.val().contact)
+            $scope.currentUser = snapshot.val().contact;
         });
       })
     }
@@ -32,7 +35,7 @@ dorrbell.controller("HomeController", function($scope, $mdDialog, $mdMedia, $roo
 
   $scope.goToStore = function(){
     if($scope.currentUser && $scope.currentUser.Qualified__c === true)
-      window.location.href = "http://dorrbell-test.myshopify.com";
+      window.location.href = SHOPIFY;
     else
       $scope.showDialog();
   }
@@ -51,7 +54,7 @@ dorrbell.controller("HomeController", function($scope, $mdDialog, $mdMedia, $roo
 
 });
 
-dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $mdDialog, $mdMedia, $location, $timeout, FacebookFactory, GoogleFactory, HerokuService, AuthenticationService){
+dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $mdDialog, $mdMedia, $location, $timeout, FacebookFactory, GoogleFactory, HerokuService, AuthenticationService, SHOPIFY){
   $scope.closeDialog = function(){
     $mdDialog.hide();
   }
@@ -68,6 +71,7 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
       firebase.auth().signInWithRedirect(provider);
     }else{
       firebase.auth().signInWithPopup(provider).then($scope.handleResult).catch(function(e){
+        Raven.captureException(e);
         $timeout(function(){
           $scope.model.error = e.message;
           $scope.model.loading = false;
@@ -83,10 +87,11 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
       firebase.auth().createUserWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(r){
         $scope.user.uid = r.uid;
         $scope.user.provider = r.providerData[0].providerId;
-        $scope.user.leadSource = $location.search().promo;
+        $scope.user.leadSource = $location.search().lpsource;
         $scope.credential = {email : $scope.user.email, password : $scope.user.password, provider : $scope.user.provider}
         $scope.validate();
       }).catch(function(e) {
+        Raven.captureException(e);
         $timeout(function(){
           $scope.model.error = e.message;
           $scope.model.loading = false;
@@ -105,7 +110,7 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
         firebase.database().ref('/customers/' + user.uid).once("value").then(function(snapshot){
           if(snapshot && snapshot.val() && snapshot.val().contact.Qualified__c === true){
             $scope.credential = {email : $scope.user.email, password : $scope.user.password, provider : user.providerData[0].providerId};
-            window.location.href = "http://dorrbell-test.myshopify.com?token=" + btoa(JSON.stringify($scope.credential));
+            window.location.href = SHOPIFY + "?token=" + btoa(JSON.stringify($scope.credential));
           }else if(snapshot && snapshot.val() && snapshot.val().contact.Qualified !== true){
             $timeout(function(){
               $scope.model = {step : 2, authorized : false, loading : false};
@@ -120,6 +125,7 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
 
         });
       }, function(e){
+        Raven.captureException(e);
         $timeout(function(){
           $scope.model.error = "Unable to login. Please verify your username / password";
           $scope.model.loading = false;
@@ -139,6 +145,7 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
         });
 
       }, function(err){
+        Raven.captureException(err);
         $timeout(function(){
           $scope.model.error = err.message;
           $scope.model.loading = false;
@@ -184,17 +191,18 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
       HerokuService.post('api/validate-user', {uid : result.user.uid}).then(function(res){
         $scope.model.loading = false;
         if(res.status === 201)
-          window.location.href = "http://dorrbell-test.myshopify.com?token=" + btoa(JSON.stringify($scope.credential));
+          window.location.href = SHOPIFY + "?token=" + btoa(JSON.stringify($scope.credential));
         else
           $scope.model = {step : 2, authorized : false};
       }, function(err){
+        Raven.captureException(err);
         $scope.user = $scope.merge($scope.user, {
           photoUrl : result.user.photoURL,
           networkId : result.user.providerData[0].uid,
           uid : result.user.uid,
           email : result.user.email,
           postalCode : $location.search().pc,
-          leadSource : $location.search().promo,
+          leadSource : $location.search().lpsource,
           displayName : result.user.displayName
         });
         if(result.credential.provider == "facebook.com"){
@@ -233,10 +241,13 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
     $scope.model.loading = true;
     HerokuService.post('api/register', $scope.user).then(function(response){
       $scope.model.loading = false;
-      if(response.status === 201)
-        window.location.href = "http://dorrbell-test.myshopify.com?token=" + btoa(JSON.stringify($scope.credential));
-      else
+      if(response.status === 201){
+        window.location.href = SHOPIFY + "?token=" + btoa(JSON.stringify($scope.credential));
+      }else{
+        Raven.captureMessage('Unauthorized Regstration', {level : 'warning'});
         $scope.model = {step : 2, authorized : false};
+      }
+
 
     }, function(){$scope.model = {step : 2, loading : false, authorized : false};});
   }
@@ -249,7 +260,7 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
   }
 
   $scope.goToStore = function(){
-    window.location.href = "http://dorrbell-test.myshopify.com?token=" + btoa(JSON.stringify($scope.credential));
+    window.location.href = SHOPIFY + "?token=" + btoa(JSON.stringify($scope.credential));
   }
 
   firebase.auth().getRedirectResult().then(function(result){
@@ -268,21 +279,28 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
 
   if($location.search().ref){
     $scope.model.ref = $location.search().ref;
+    $scope.model.checkCode = false;
     HerokuService.get('api/code/' + $scope.model.ref).then(function(response){
-      if(response && response.data && response.data.records && response.data.records.length > 0){
-        $scope.model.referral = response.data.records[0];
+      $scope.model.checkCode = true;
+      if(response && response.data && response.data.length == 2){
+        $scope.model.referral = response.data[1].records[0];
         $scope.user.referralFrom = $scope.model.referral.Id;
+        $scope.model.referralProduct = response.data[0].records[0];
       }
+    }, function(){
+      $scope.model.checkCode = true;
     });
+  }else{
+    $scope.model.checkCode = true;
   }
-
-
 });
 
-dorrbell.controller("RegisterController", function($scope, $mdDialog, $mdMedia, $timeout){
+dorrbell.controller("RegisterController", function($scope, $mdDialog, $mdMedia, $timeout, SHOPIFY){
   $scope.customFullscreen =  $mdMedia('xs') || $mdMedia('sm');
   var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
-  $timeout(function(){
+
+
+  angular.element(document).ready(function(){
     $mdDialog.show({
       controller: "RegisterDialogController",
       templateUrl: 'register-modal.htm',
@@ -290,9 +308,12 @@ dorrbell.controller("RegisterController", function($scope, $mdDialog, $mdMedia, 
       controllerAs : 'dialog',
       clickOutsideToClose:false,
       fullscreen: useFullScreen,
-      escapeToClose : false
+      escapeToClose : false,
+      hasBackdrop : false
     });
-  });
+  })
+
+
   $scope.$watch(function() {
     return $mdMedia('xs') || $mdMedia('sm');
   }, function(wantsFullScreen) {

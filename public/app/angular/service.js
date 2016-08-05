@@ -1,4 +1,4 @@
-dorrbell.service("HerokuService", function($http){
+dorrbell.service("HerokuService", function($http, HEROKU){
   return {
     post : function(route, data){
       return $http({
@@ -8,7 +8,7 @@ dorrbell.service("HerokuService", function($http){
           "authorization" : "Basic Z14vbjcyayxOdUpnM0pfXw=="
         },
         data : data,
-        url : "https://dorrbell-test.herokuapp.com/" + route
+        url : HEROKU + "/" + route
       });
     },
     get : function(route){
@@ -18,7 +18,7 @@ dorrbell.service("HerokuService", function($http){
           "Content-Type" : "application/json",
           "authorization" : "Basic Z14vbjcyayxOdUpnM0pfXw=="
         },
-        url : "https://dorrbell-test.herokuapp.com/" + route
+        url : HEROKU + "/" + route
       });
     }
   };
@@ -53,6 +53,9 @@ dorrbell.service("GoogleService", function($http){
 
 dorrbell.service("AuthenticationService", function($q){
   return {
+    storefront : {
+
+    },
     link : function(oc){
       return $q(function(resolve, reject){
         var credential;

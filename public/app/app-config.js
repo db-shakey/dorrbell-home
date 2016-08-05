@@ -1,5 +1,6 @@
 dorrbell.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider, $httpProvider) {
-  //
+  //Constants
+
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise("/");
   // use the HTML5 History API
@@ -35,10 +36,15 @@ dorrbell.config(function($stateProvider, $urlRouterProvider, $locationProvider, 
   //
   // Now set up the states
   $stateProvider
+    // .state('home', {
+    //   url: "/",
+    //   templateUrl: "app/templates/home.html",
+    //   controller: "HomeController"
+    // })
     .state('home', {
-      url: "/",
-      templateUrl: "app/templates/home.html",
-      controller: "HomeController"
+      url : '/',
+      externalUrl: 'https://try.dorrbell.com',
+      external : true
     })
     .state('register', {
       url : "/register",
@@ -61,5 +67,9 @@ dorrbell.config(function($stateProvider, $urlRouterProvider, $locationProvider, 
     .state('about', {
       url : '/about',
       templateUrl : "app/templates/about.html"
+    })
+    .state('press', {
+      url : '/press',
+      templateUrl : 'app/templates/press.html'
     })
 });

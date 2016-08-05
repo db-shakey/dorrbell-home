@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="main.css">
         <script src="node_modules/angular/angular.min.js"></script>
         <script src="app/app.js"></script>
+        <script src="app/angular/constants.js"></script>
         <script src="app/angular/controller.js"></script>
         <script src="app/angular/service.js"></script>
         <script src="app/angular/factory.js"></script>
@@ -25,55 +26,67 @@
         <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
         <script src="https://use.fontawesome.com/88c218f366.js"></script>
         <script src="https://use.typekit.net/jey4hge.js"></script>
-        <script src="https://cdn.ravenjs.com/3.2.1/raven.min.js"></script>
+        <script src="https://cdn.ravenjs.com/3.3.0/angular/raven.min.js"></script>
+        <script src="node_modules/raven-js/dist/plugins/angular.js"></script>
+
+
 		    <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
         <!-- Google Tag Manager -->
         <noscript>
           <iframe height="0" src="//www.googletagmanager.com/ns.html?id=GTM-WDMNR7" style="display:none;visibility:hidden" width="0"></iframe>
         </noscript>
-        <script>
-          (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-              'gtm.start': new Date().getTime(),
-              event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer'
-            ? '&l=' + l
-            : '';
-            j.async = true;
-            j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode
-            .insertBefore(j, f);
-          })(window, document, 'script', 'dataLayer', 'GTM-WDMNR7');
+        <!-- Facebook Pixel Code -->
 
-          /*
+
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-65052243-1', 'auto');
+          ga('send', 'pageview');
+
+
+
+
+
           var config = {
             apiKey: "AIzaSyAcz_WwopApajZN2vUL_yEXdkwYZBlDHB8",
             authDomain: "dorrbell-1106.firebaseapp.com",
             databaseURL: "https://dorrbell-1106.firebaseio.com",
             storageBucket: "dorrbell-1106.appspot.com",
           };
-          */
+          /*
           var config = {
             apiKey: "AIzaSyCbzQTM1kMvD5EsdXSU-moUJFaXgHX0Kr8",
             authDomain: "dorrbell-test.firebaseapp.com",
             databaseURL: "https://dorrbell-test.firebaseio.com",
             storageBucket: "dorrbell-test.appspot.com",
           };
+          */
           firebase.initializeApp(config);
 
-
-          Raven.config('https://ba7b61828bf8414ea66856a0036f1ba0@app.getsentry.com/87885').install()
+          Raven.config('https://ba7b61828bf8414ea66856a0036f1ba0@app.getsentry.com/87885').install();
 
         </script>
         <!-- End Google Tag Manager -->
 
     </head>
     <body>
+      <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-T5BGXX"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-T5BGXX');</script>
+      <!-- End Google Tag Manager -->
+
+
         <div ng-app="dorrbell" ng-cloak id="outer-container">
           <div ng-include="'/app/templates/extras.html'"></div>
           <ui-view></ui-view>
