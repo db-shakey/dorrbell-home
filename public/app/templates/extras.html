@@ -112,30 +112,12 @@
               <div layout="column" layout-align="center center">
                 <h3 class="text-center">Clothes delivered to your door so you can skip the trip to the store.</h3>
               </div>
-              <div layout="column" layout-align="center center" ng-if="model.referral" ng-show="model.checkCode">
+              <div layout="column" layout-align="center center" ng-if="model.referral">
                 <md-card md-theme="dark-grey" ng-class="(model.referral.Personas.records[0].ExternalPictureURL) ? '' : 'p-w-xl'">
                  <md-card-title>
                    <md-card-title-text>
                      <span class="md-headline text-center">{{model.referral.FirstName}} Gave You</span>
                      <span class="md-headline text-center">{{-1 * model.referralProduct.UnitPrice | currency}} </span>
-                     <span class="md-subhead text-center m-t-n-sm">off your first order!</span>
-                   </md-card-title-text>
-                   <md-card-title-media class="m-l-lg" ng-if="model.referral.Personas.records[0].ExternalPictureURL">
-                     <md-card-title-media>
-                        <div class="md-media-sm card-media">
-                          <img src="{{model.referral.Personas.records[0].ExternalPictureURL}}" class="m-t-sm"></img>
-                        </div>
-                      </md-card-title-media>
-                   </md-card-title-media>
-                 </md-card-title>
-               </md-card>
-              </div>
-              <div layout="column" layout-align="center center" ng-if="!model.referral" ng-show="model.checkCode">
-                <md-card md-theme="dark-grey" class="p-w-sm">
-                 <md-card-title>
-                   <md-card-title-text>
-                     <span class="md-headline text-center">Register Now to Receive</span>
-                     <span class="md-headline text-center">{{20 | currency}} </span>
                      <span class="md-subhead text-center m-t-n-sm">off your first order!</span>
                    </md-card-title-text>
                    <md-card-title-media class="m-l-lg" ng-if="model.referral.Personas.records[0].ExternalPictureURL">

@@ -279,19 +279,13 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
 
   if($location.search().ref){
     $scope.model.ref = $location.search().ref;
-    $scope.model.checkCode = false;
     HerokuService.get('api/code/' + $scope.model.ref).then(function(response){
-      $scope.model.checkCode = true;
       if(response && response.data && response.data.length == 2){
         $scope.model.referral = response.data[1].records[0];
         $scope.user.referralFrom = $scope.model.referral.Id;
         $scope.model.referralProduct = response.data[0].records[0];
       }
-    }, function(){
-      $scope.model.checkCode = true;
     });
-  }else{
-    $scope.model.checkCode = true;
   }
 });
 
