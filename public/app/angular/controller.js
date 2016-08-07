@@ -19,11 +19,8 @@ dorrbell.controller("HomeController", function($scope, $mdDialog, $mdMedia, $roo
     $scope.customFullscreen = (wantsFullScreen === true);
   });
 
-
-
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
-      Raven.setUserContext(user);
       firebase.database().ref('customers/' + user.uid).on("value", function(snapshot){
         $timeout(function(){
           if(snapshot.val() && snapshot.val().contact)
@@ -58,6 +55,10 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
   $scope.closeDialog = function(){
     $mdDialog.hide();
   }
+
+  $scope.$watch('user', function(newValue, oldValue){
+    Raven.setUserContext(newValue);
+  }, true)
 
   $scope.register = function(type){
     var provider;
@@ -97,6 +98,8 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
           $scope.model.loading = false;
         });
       })
+    }else{
+      Raven.captureMessage('Form Validation Failed', {level : 'warning'});
     }
   }
 
@@ -131,6 +134,8 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
           $scope.model.loading = false;
         });
       });
+    }else{
+      Raven.captureMessage('Form Validation Failed', {level : 'warning'});
     }
   }
 

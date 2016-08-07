@@ -11,6 +11,12 @@
         <link rel="stylesheet" href="utils.css">
         <link rel="stylesheet" href="main.css">
         <script src="node_modules/angular/angular.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+        <script src="https://use.fontawesome.com/88c218f366.js"></script>
+        <script src="https://use.typekit.net/jey4hge.js"></script>
+        <script src="https://cdn.ravenjs.com/3.3.0/angular/raven.min.js"></script>
+        <script src="node_modules/raven-js/dist/plugins/angular.js"></script>
+
         <script src="app/app.js"></script>
         <script src="app/angular/constants.js"></script>
         <script src="app/angular/controller.js"></script>
@@ -23,11 +29,8 @@
         <script src="node_modules/angular-animate/angular-animate.js"></script>
         <script src="node_modules/angular-material/angular-material.js"></script>
 
-        <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-        <script src="https://use.fontawesome.com/88c218f366.js"></script>
-        <script src="https://use.typekit.net/jey4hge.js"></script>
-        <script src="https://cdn.ravenjs.com/3.3.0/angular/raven.min.js"></script>
-        <script src="node_modules/raven-js/dist/plugins/angular.js"></script>
+
+
 
 
 		    <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -48,28 +51,6 @@
 
           ga('create', 'UA-65052243-1', 'auto');
           ga('send', 'pageview');
-
-
-
-
-
-          var config = {
-            apiKey: "AIzaSyAcz_WwopApajZN2vUL_yEXdkwYZBlDHB8",
-            authDomain: "dorrbell-1106.firebaseapp.com",
-            databaseURL: "https://dorrbell-1106.firebaseio.com",
-            storageBucket: "dorrbell-1106.appspot.com",
-          };
-          /*
-          var config = {
-            apiKey: "AIzaSyCbzQTM1kMvD5EsdXSU-moUJFaXgHX0Kr8",
-            authDomain: "dorrbell-test.firebaseapp.com",
-            databaseURL: "https://dorrbell-test.firebaseio.com",
-            storageBucket: "dorrbell-test.appspot.com",
-          };
-          */
-          firebase.initializeApp(config);
-
-          Raven.config('https://ba7b61828bf8414ea66856a0036f1ba0@app.getsentry.com/87885').install();
 
         </script>
         <!-- End Google Tag Manager -->
