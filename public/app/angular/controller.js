@@ -99,7 +99,7 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
         });
       })
     }else{
-      Raven.captureMessage('Form Validation Failed', {level : 'warning'});
+      Raven.captureMessage('Register Email Form Validation Failed', {level : 'warning'});
     }
   }
 
@@ -120,6 +120,7 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
             })
           }
           else{
+            Raven.captureMessage("Login failed", {level : 'warning'});
             $timeout(function(){
               $scope.model.error = "Unable to login. Please verify your username / password";
               $scope.model.loading = false;
@@ -135,7 +136,7 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
         });
       });
     }else{
-      Raven.captureMessage('Form Validation Failed', {level : 'warning'});
+      Raven.captureMessage('Login Form Validation Failed', {level : 'warning'});
     }
   }
 
@@ -156,6 +157,8 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
           $scope.model.loading = false;
         })
       })
+    }else{
+      Raven.captureMessage('Reset Password Form Validation Failed', {level : 'warning'});
     }
   }
 
@@ -174,6 +177,8 @@ dorrbell.controller("RegisterDialogController", function($scope, $rootScope, $md
           }
         })
       });
+    }else{
+      Raven.captureMessage('Verify Zip Code Form Validation Failed', {level : 'warning'});
     }
   }
 
